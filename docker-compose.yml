@@ -1,4 +1,4 @@
-version: 3.5
+version: "3.3"
 services:
   db:
     image: mariadb:latest
@@ -10,13 +10,13 @@ services:
       MYSQL_ROOT_PASSWORD: redhat123
     volumes:
       - /var/lib/mysql:/var/lib/mysql
-    depends_on: web
 
   web:
     image: php:7.3-apache
     container_name: php_web
     ports:
       - "8088:80"
-    depends_on: db
+    depends_on: 
+      - db
     volumes:
       - /var/www/html:/var/www/html
