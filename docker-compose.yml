@@ -12,7 +12,7 @@ services:
       - /var/lib/mysql:/var/lib/mysql
 
   web:
-    image: php:7.3-apache
+    image: php:apache
     container_name: php_web
     ports:
       - "8088:80"
