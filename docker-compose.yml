@@ -10,6 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: redhat123
     volumes:
       - /var/lib/mysql:/var/lib/mysql
+    restart: always
 
   web:
     image: php:apache
@@ -20,3 +21,4 @@ services:
       - db
     volumes:
       - /var/www/html:/var/www/html
+    restart: always
