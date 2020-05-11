@@ -1,0 +1,22 @@
+version: 3.5
+services:
+  db:
+    image: mariadb:latest
+    container_name: mysql_web
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: database_web
+      MYSQL_ROOT_PASSWORD: redhat123
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
+    depends_on: web
+
+  web:
+    image: php:7.3-apache
+    container_name: php_web
+    ports:
+      - "8088:80"
+    depends_on: db
+    volumes:
+      - /var/www/html:/var/www/html
